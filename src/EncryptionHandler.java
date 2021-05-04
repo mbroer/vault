@@ -1,5 +1,12 @@
 public class EncryptionHandler
 {
-    public void encrypt(){}
-    public void decrypt(){}
+    public String encrypt(String str)
+    {
+        return "";
+    }
+
+    public String decrypt(String str)
+    {
+        return "";
+    }
 }

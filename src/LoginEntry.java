@@ -1,16 +1,41 @@
 public class LoginEntry
 {
-    public LoginEntry(){}
+    public LoginEntry(String username, String password, String domain, String description)
+    {
+    }
 
-    public void setUsername(){}
-    public void getUsername(){}
+    public void setUsername(String username)
+    {
+    }
+    public String getUsername()
+    {
+        return "";
+    }
 
-    public void setPassword(){}
-    public void getPassword(){}
+    public void setPassword(String password)
+    {
+    }
 
-    public void setDomain(){}
-    public void getDomain(){}
+    public String getPassword()
+    {
+        return "";
+    }
 
-    public void setDescription(){}
-    public void getDescription(){}
+    public void setDomain(String domain)
+    {
+    }
+
+    public String getDomain()
+    {
+        return "";
+    }
+
+    public void setDescription(String description)
+    {
+    }
+
+    public String getDescription()
+    {
+        return "";
+    }
 }

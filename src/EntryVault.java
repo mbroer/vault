@@ -1,9 +1,14 @@
+import java.util.ArrayList;
+
 public class EntryVault
 {
-    public EntryVault(){}
+    public EntryVault(ArrayList<LoginEntry> entries) {}
     public void listEntries(){}
-    public void addEntry(){}
-    public void removeEntry(){}
-    public void editEntry(){}
-    public void getEntries(){}
+    public void addEntry(LoginEntry entry){}
+    public void removeEntry(LoginEntry entry){}
+    public void editEntry(LoginEntry entry){}
+    public ArrayList<LoginEntry> getEntries()
+    {
+        return null;
+    }
 }

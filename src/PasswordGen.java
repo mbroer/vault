@@ -1,8 +1,16 @@
 public class PasswordGen
 {
-    public void generate(){}
+    public static String generate(int length)
+    {
+        return "";
+    }
 
-    public void setIncludeSpecialChars(){}
+    public static void setIncludeSpecialChars(boolean bool)
+    {
+    }
 
-    public void getIncludeSpecialChars(){}
+    public static boolean getIncludeSpecialChars()
+    {
+        return true;
+    }
 }
