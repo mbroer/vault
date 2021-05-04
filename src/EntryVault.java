@@ -6,13 +6,19 @@ public class EntryVault
     private ArrayList<LoginEntry> entries;
 
     //Constructor will load-in an arraylist of loginentries
-    public EntryVault(ArrayList<LoginEntry> entries) {}
+    public EntryVault(ArrayList<LoginEntry> entries)
+    {
+    this.entries = entries;
+    }
 
     //Will list all LoginEntry from the entries arraylist
     public void listEntries(){}
 
     //Handles adding an entry to the vault
-    public void addEntry(LoginEntry entry){}
+    public void addEntry(LoginEntry entry)
+    {
+        entries.add(entry);
+    }
 
     //Handles removing an entry from the vault
     public void removeEntry(LoginEntry entry){}
@@ -23,6 +29,6 @@ public class EntryVault
     //returns list of login entries
     public ArrayList<LoginEntry> getEntries()
     {
-        return null;
+        return entries;
     }
 }

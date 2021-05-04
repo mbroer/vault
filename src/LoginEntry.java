@@ -13,49 +13,57 @@ public class LoginEntry
     //LoginEntry constructor creates new LoginEntry object for use in the Vault
     public LoginEntry(String username, String password, String domain, String description)
     {
+        this.username = username;
+        this.password = password;
+        this.domain = domain;
+        this.description = description;
     }
 
     //Sets username of LoginEntry
     public void setUsername(String username)
     {
+        this.username = username;
     }
 
     //returns username of the LoginEntry
     public String getUsername()
     {
-        return "";
+        return username;
     }
 
     //set password of the LoginEntry
     public void setPassword(String password)
     {
+        this.password = password;
     }
 
     //returns password of the LoginEntry
     public String getPassword()
     {
-        return "";
+        return password;
     }
 
     //set domain of the LoginEntry
     public void setDomain(String domain)
     {
+        this.domain = domain;
     }
 
     //returns domain of the LoginEntry
     public String getDomain()
     {
-        return "";
+        return domain;
     }
 
     //set description of the LoginEntry
     public void setDescription(String description)
     {
+        this.description = description;
     }
 
     //returns description of the LoginEntry
     public String getDescription()
     {
-        return "";
+        return description;
     }
 }

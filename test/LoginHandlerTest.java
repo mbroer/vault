@@ -6,7 +6,7 @@ public class LoginHandlerTest
     public void login()
     {
         LoginHandler loginHandler = new LoginHandler();
-        loginHandler.login("p");
+        loginHandler.login("masterpassword");
 
         assertTrue(loginHandler.isLoggedIn());
     }

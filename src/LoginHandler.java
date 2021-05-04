@@ -9,6 +9,8 @@ public class LoginHandler
     //handles logging into the application, app wont continue unless correct master password is given
     public void login(String password)
     {
+        if(password.equals(masterPassword))
+            isLoggedIn = true;
     }
 
     //logout of the application, requires to re-enter master password
@@ -19,7 +21,7 @@ public class LoginHandler
     //function to check if user is actually logged in
     public boolean isLoggedIn()
     {
-        return false;
+        return isLoggedIn;
     }
 
     //quit the application
