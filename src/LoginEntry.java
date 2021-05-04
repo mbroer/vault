@@ -9,7 +9,6 @@ public class LoginEntry
     //To set and get the description field inside LoginEntry
     private String description;
 
-
     //LoginEntry constructor creates new LoginEntry object for use in the Vault
     public LoginEntry(String username, String password, String domain, String description)
     {
@@ -17,6 +16,19 @@ public class LoginEntry
         this.password = password;
         this.domain = domain;
         this.description = description;
+    }
+
+    /*
+        wrapper to create new entry, returns false if given incorrect input,
+        returns true and creates new entry if correct inputs are supplied
+    */
+    public static boolean createNewEntry(String username, String password, String domain, String description)
+    {
+        if(username.isEmpty() || password.isEmpty())
+            return false;
+
+        new LoginEntry(username, password, domain, description);
+        return true;
     }
 
     //Sets username of LoginEntry
