@@ -18,6 +18,11 @@ public class PasswordGen
     //generates a random string with specified length
     public static String generate(int length)
     {
+        if(length < 6)
+            return "";
+        else if(length > 50)
+            return "";
+
         StringBuilder str = new StringBuilder();
         str.append(CHARS).append(LCCHARS).append(NUMS);
 
