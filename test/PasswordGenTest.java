@@ -18,4 +18,17 @@ public class PasswordGenTest
         for(int i=0;i<10; i++)
             assertFalse(PasswordGen.generate(20).contains("!@#$%^&*()_+{}[];',./<>?|"));
     }
+
+    @Test
+    public void testGeneratorLength()
+    {
+        int[] badlengths = {0,1,5,51,52};
+        int[] goodlengths= {6,7,8,15,20,40,49,50};
+
+        for(int i=0;i<badlengths.length; i++)
+            assertEquals(0, PasswordGen.generate(badlengths[i]).length());
+
+        for(int i=0;i<goodlengths.length; i++)
+            assertEquals(goodlengths[i], PasswordGen.generate(goodlengths[i]).length());
+    }
 }
