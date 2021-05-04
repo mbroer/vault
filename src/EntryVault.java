@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 public class EntryVault
 {
+    //To keep track of all LoginEntries
+    private ArrayList<LoginEntry> entries;
+
     //Constructor will load-in an arraylist of loginentries
     public EntryVault(ArrayList<LoginEntry> entries) {}
 

@@ -1,5 +1,8 @@
 public class FileHandler
 {
+    //To easily be able to specify the file directory if needed
+    private String dir;
+
     //handles creating new files
     public void createFile(){}
 

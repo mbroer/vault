@@ -1,5 +1,15 @@
 public class LoginEntry
 {
+    //To set and get the username field inside LoginEntry
+    private String username;
+    //To set and get the password field inside LoginEntry
+    private String password;
+    //To set and get the domain field inside LoginEntry
+    private String domain;
+    //To set and get the description field inside LoginEntry
+    private String description;
+
+
     //LoginEntry constructor creates new LoginEntry object for use in the Vault
     public LoginEntry(String username, String password, String domain, String description)
     {
