@@ -11,12 +11,22 @@ public class LoginEntryTest
     @Test
     public void testCreate()
     {
-        assertTrue( LoginEntry.createNewEntry("naam", "123", "bol.com", "Account voor bol.com") );
-        assertTrue( LoginEntry.createNewEntry("e", "h", "gmail.com", "Account voor gmail.com") );
-        assertFalse( LoginEntry.createNewEntry("hhh@h.com", "", "outlook", "") );
-        assertFalse( LoginEntry.createNewEntry("", "123", "", "") );
-        assertTrue( LoginEntry.createNewEntry("ejfsdjds", "jsdj", "", "") );
-        assertFalse( LoginEntry.createNewEntry("", "", "", "") );
-        assertTrue( LoginEntry.createNewEntry("111", "hhhhhhhh", "", "") );
+        String emptyUsername = "", emptyPW = "", emptyDomain = "", emptyDESC = "";
+
+        String username = "username";
+        Integer usernameINT = 123;
+
+        String password = "password";
+        String domain = "domain";
+        String desc = "description";
+
+        assertTrue( LoginEntry.createNewEntry( username, password, domain, desc ) );
+        assertTrue( LoginEntry.createNewEntry( username, emptyPW, emptyDomain, emptyDESC ) );
+
+        assertTrue( LoginEntry.createNewEntry( usernameINT, password, emptyDomain, desc ) );
+        assertTrue( LoginEntry.createNewEntry( usernameINT, emptyPW, domain, emptyDESC ) );
+
+        assertTrue( LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC ) );
+        assertTrue( LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC ) );
     }
 }

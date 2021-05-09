@@ -31,6 +31,11 @@ public class LoginEntry
         return true;
     }
 
+    public static boolean createNewEntry(Integer username, String password, String domain, String description)
+    {
+        return createNewEntry(username.toString(), password, domain, description);
+    }
+
     //Sets username of LoginEntry
     public void setUsername(String username)
     {
