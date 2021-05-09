@@ -23,7 +23,7 @@ public class PasswordGenTest
     public void testGeneratorLength()
     {
         int[] badlengths = {0,1,5,51,52};
-        int[] goodlengths= {6,7,8,15,20,40,49,50};
+        int[] goodlengths= {6,7,49,50};
 
         for(int i=0;i<badlengths.length; i++)
             assertEquals(0, PasswordGen.generate(badlengths[i]).length());

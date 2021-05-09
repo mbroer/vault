@@ -8,12 +8,12 @@ public class MainTest
     public void testMCDC()
     {
         LoginHandler LH = new LoginHandler();
-        LH.login("masterpassword");
+        LH.login("masterpassword");         //login with master password
 
         LoginEntry LE = new LoginEntry("username", "pass", "domain", "desc");
 
-        assertTrue(LH.isLoggedIn());
-        assertTrue(!LE.getUsername().isEmpty());
-        assertTrue(!LE.getPassword().isEmpty());
+        assertTrue(LH.isLoggedIn());                //masterpassword entered correctly / user logged in
+        assertTrue(!LE.getUsername().isEmpty());    //username field filled
+        assertTrue(!LE.getPassword().isEmpty());    //password field filled
     }
 }
