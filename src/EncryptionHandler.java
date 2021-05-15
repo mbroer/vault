@@ -1,26 +1,71 @@
 import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
+import java.security.Key;
+import javax.crypto.spec.SecretKeySpec;
 
 public class EncryptionHandler
 {
     //Cipher to handle encryption
-    private Cipher cipher;
+    private static Cipher cipher;
+    private static Key aesKey;
 
-    //To generate a key
-    private SecretKey secretKey;
+    private static final String key = "%D*G-KaPdRgUkXp2s5v8y/B?E(H+MbQe"; //256bit
 
-    //To easily change which scheme to use for encryption/decryption
-    private String encryptionScheme;
-
-    //encrypt a given string
-    public String encrypt(String str)
+    static
     {
-        return "";
+        try
+        {
+            cipher = Cipher.getInstance("AES");
+            aesKey = new SecretKeySpec(key.getBytes(), "AES");
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
-    //decrypt a given string
-    public String decrypt(String str)
+    //encrypt a given string
+    public static byte[] encrypt(String str)
     {
-        return "";
+        byte[] encrypted = {};
+
+        try
+        {
+            cipher.init(Cipher.ENCRYPT_MODE, aesKey);
+            encrypted = cipher.doFinal(str.getBytes());
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return encrypted;
+    }
+
+    //decrypt a given byte[] into string
+    public static String decrypt(byte[] str)
+    {
+        String decrypted = "";
+
+        try
+        {
+            cipher.init(Cipher.DECRYPT_MODE, aesKey);
+            decrypted = new String(cipher.doFinal(str));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+       return decrypted;
+    }
+
+    public static String byteArrayToString(byte[] bytes)
+    {
+        return new String(bytes);
+    }
+
+    public static byte[] stringToByteArray(String str)
+    {
+        return str.getBytes();
     }
 }
