@@ -3,12 +3,24 @@ import java.util.ArrayList;
 public class EntryVault
 {
     //To keep track of all LoginEntries
-    private ArrayList<LoginEntry> entries;
+    private ArrayList<LoginEntry> entries = new ArrayList<>();
+
+    private static EntryVault singleton;
 
     //Constructor will load-in an arraylist of loginentries
-    public EntryVault(ArrayList<LoginEntry> entries)
+    public EntryVault()
     {
-    this.entries = entries;
+        FileHandler fileHandler = new FileHandler("data2");
+
+        entries = fileHandler.loadDataFromJson();
+    }
+
+    public static EntryVault getInstance()
+    {
+        if(singleton == null)
+            return new EntryVault();
+
+        return singleton;
     }
 
     //Will list all LoginEntry from the entries arraylist
