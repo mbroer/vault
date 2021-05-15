@@ -162,6 +162,7 @@ public class FileHandler
         {
             for (int i=0;i<jsonArray.size();i++)
             {
+                System.out.println("aye");
                 LoginEntry entry = gson.fromJson(jsonArray.get(i), LoginEntry.class);
                 entry.setPassword(EncryptionHandler.decrypt((entry.getPassword())));
 

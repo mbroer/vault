@@ -8,7 +8,7 @@ public class EntryVault
     private static EntryVault singleton;
 
     //Constructor will load-in an arraylist of loginentries
-    public EntryVault()
+    private EntryVault()
     {
         FileHandler fileHandler = new FileHandler("data");
 
@@ -29,7 +29,7 @@ public class EntryVault
         System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", "LOGINNAAM", "WACHTWOORD", "DOMEIN");
 
         for(LoginEntry entry : getEntries())
-            System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", entry.getUsername(), entry.getPassword(), entry.getDomain());
+            System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", entry.getUsername(), entry.getPassword(), entry.getDescription());
     }
 
     public void createEntry(String username, String password, String domain, String description, boolean saveToFile)
