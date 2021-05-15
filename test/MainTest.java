@@ -7,7 +7,8 @@ public class MainTest
     @Test
     public void testMCDC()
     {
-        LoginHandler LH = new LoginHandler();
+
+        LoginHandler LH = LoginHandler.getInstance();
         LH.login("masterpassword");         //login with master password
 
         LoginEntry LE = new LoginEntry("username", "pass", "domain", "desc");
