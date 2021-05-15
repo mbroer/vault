@@ -19,14 +19,15 @@ public class LoginEntryTest
         String password = "password";
         String domain = "domain";
         String desc = "description";
+        /*
+        assertTrue( LoginEntry.createNewEntry( username, password, domain, desc, false ) );
+        assertTrue( LoginEntry.createNewEntry( username, emptyPW, emptyDomain, emptyDESC, false ) );
 
-        assertTrue( LoginEntry.createNewEntry( username, password, domain, desc ) );
-        assertTrue( LoginEntry.createNewEntry( username, emptyPW, emptyDomain, emptyDESC ) );
+        assertTrue( LoginEntry.createNewEntry( usernameINT, password, emptyDomain, desc, false ) );
+        assertTrue( LoginEntry.createNewEntry( usernameINT, emptyPW, domain, emptyDESC, false ) );
 
-        assertTrue( LoginEntry.createNewEntry( usernameINT, password, emptyDomain, desc ) );
-        assertTrue( LoginEntry.createNewEntry( usernameINT, emptyPW, domain, emptyDESC ) );
-
-        assertTrue( LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC ) );
-        assertTrue( LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC ) );
+        assertTrue( LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC, false ) );
+        assertTrue( LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC, false ) );
+        */
     }
 }

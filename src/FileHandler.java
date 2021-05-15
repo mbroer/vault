@@ -89,7 +89,7 @@ public class FileHandler
         return filename+fileExtension;
     }
 
-    public void toJson(LoginEntry entry)
+    public void saveLoginEntryToJson(LoginEntry entry)
     {
         entry.setPassword(EncryptionHandler.encrypt(entry.getPassword()));
 
