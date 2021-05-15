@@ -22,18 +22,19 @@ public class LoginEntry
         wrapper to create new entry, returns false if given incorrect input,
         returns true and creates new entry if correct inputs are supplied
     */
-    public static boolean createNewEntry(String username, String password, String domain, String description)
+    public static LoginEntry createNewEntry(String username, String password, String domain, String description, boolean saveToFile)
     {
         if(username.isEmpty() || password.isEmpty())
-            return false;
+            return null;
 
-        new LoginEntry(username, password, domain, description);
-        return true;
+        LoginEntry entry = new LoginEntry(username, password, domain, description);
+
+        return entry;
     }
 
-    public static boolean createNewEntry(Integer username, String password, String domain, String description)
+    public static LoginEntry createNewEntry(Integer username, String password, String domain, String description, boolean saveToFile)
     {
-        return createNewEntry(username.toString(), password, domain, description);
+        return createNewEntry(username.toString(), password, domain, description, saveToFile);
     }
 
     //Sets username of LoginEntry

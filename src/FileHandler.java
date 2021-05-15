@@ -89,8 +89,10 @@ public class FileHandler
         return filename+fileExtension;
     }
 
-    public void toJson(LoginEntry entry)
+    public void saveLoginEntryToJson(LoginEntry entry)
     {
+        entry.setPassword(EncryptionHandler.encrypt(entry.getPassword()));
+
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         JsonObject jsonObj = new JsonObject();
@@ -108,6 +110,8 @@ public class FileHandler
         {
             e.printStackTrace();
         }
+
+        entry.setPassword(EncryptionHandler.decrypt(entry.getPassword()));
     }
 
     public void fromJson()
@@ -155,10 +159,17 @@ public class FileHandler
 
         //create LoginEntry classes from json data
         if (jsonArray != null)
+        {
             for (int i=0;i<jsonArray.size();i++)
-                entries.add( gson.fromJson(jsonArray.get(i), LoginEntry.class) );
+            {
+                LoginEntry entry = gson.fromJson(jsonArray.get(i), LoginEntry.class);
+                entry.setPassword(EncryptionHandler.decrypt((entry.getPassword())));
 
-        System.out.println("Loaded "+entries.size()+" login entries");
+                entries.add( entry );
+            }
+        }
+
+        //System.out.println("Loaded "+entries.size()+" login entries");
 
         return entries;
     }

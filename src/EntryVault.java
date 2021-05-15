@@ -10,7 +10,7 @@ public class EntryVault
     //Constructor will load-in an arraylist of loginentries
     public EntryVault()
     {
-        FileHandler fileHandler = new FileHandler("data2");
+        FileHandler fileHandler = new FileHandler("data");
 
         entries = fileHandler.loadDataFromJson();
     }
@@ -18,13 +18,33 @@ public class EntryVault
     public static EntryVault getInstance()
     {
         if(singleton == null)
-            return new EntryVault();
+            singleton = new EntryVault();
 
         return singleton;
     }
 
     //Will list all LoginEntry from the entries arraylist
-    public void listEntries(){}
+    public void listEntries()
+    {
+        System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", "LOGINNAAM", "WACHTWOORD", "DOMEIN");
+
+        for(LoginEntry entry : getEntries())
+            System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", entry.getUsername(), entry.getPassword(), entry.getDomain());
+    }
+
+    public void createEntry(String username, String password, String domain, String description, boolean saveToFile)
+    {
+        LoginEntry entry = LoginEntry.createNewEntry(username, password, domain, description, saveToFile);
+
+        addEntry(entry);
+
+        if(saveToFile)
+        {
+            FileHandler FH = new FileHandler("data");
+            FH.saveLoginEntryToJson(entry);
+        }
+
+    }
 
     //Handles adding an entry to the vault
     public void addEntry(LoginEntry entry)
