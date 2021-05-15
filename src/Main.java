@@ -12,5 +12,10 @@ public class Main
             System.out.println("Voer masterpassword in.");
             login.login(scan.nextLine());
         }
+
+        //creates entryvault, automatically reads data.json and populates entryvault.entries, with decrypted passwords
+        EntryVault vault = EntryVault.getInstance();
+
+        vault.listEntries();
     }
 }

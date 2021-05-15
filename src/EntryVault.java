@@ -18,13 +18,19 @@ public class EntryVault
     public static EntryVault getInstance()
     {
         if(singleton == null)
-            return new EntryVault();
+            singleton = new EntryVault();
 
         return singleton;
     }
 
     //Will list all LoginEntry from the entries arraylist
-    public void listEntries(){}
+    public void listEntries()
+    {
+        System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", "LOGINNAAM", "WACHTWOORD", "DOMEIN");
+
+        for(LoginEntry entry : getEntries())
+            System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", entry.getUsername(), entry.getPassword(), entry.getDomain());
+    }
 
     //Handles adding an entry to the vault
     public void addEntry(LoginEntry entry)
