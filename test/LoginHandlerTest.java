@@ -5,7 +5,7 @@ public class LoginHandlerTest
     @org.junit.Test
     public void login()
     {
-        LoginHandler loginHandler = new LoginHandler();
+        LoginHandler loginHandler = LoginHandler.getInstance();
         loginHandler.login("masterpassword");
 
         assertTrue(loginHandler.isLoggedIn());
@@ -14,7 +14,8 @@ public class LoginHandlerTest
     @org.junit.Test
     public void isLoggedIn()
     {
-        LoginHandler loginHandler = new LoginHandler();
-        assertFalse(loginHandler.isLoggedIn());
+        LoginHandler loginHandler = LoginHandler.getInstance();
+        loginHandler.logout();
+        assertFalse( loginHandler.isLoggedIn() );
     }
 }

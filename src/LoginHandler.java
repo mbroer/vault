@@ -6,6 +6,20 @@ public class LoginHandler
     //keep track of user login state
     private boolean isLoggedIn = false;
 
+    private static LoginHandler singleton;
+
+    private LoginHandler()
+    {
+    }
+
+    public static LoginHandler getInstance()
+    {
+        if(singleton == null)
+            singleton = new LoginHandler();
+
+        return singleton;
+    }
+
     //handles logging into the application, app wont continue unless correct master password is given
     public void login(String password)
     {
@@ -16,6 +30,7 @@ public class LoginHandler
     //logout of the application, requires to re-enter master password
     public void logout()
     {
+        isLoggedIn = false;
     }
 
     //function to check if user is actually logged in
