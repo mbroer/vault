@@ -1,5 +1,6 @@
 import javax.crypto.Cipher;
 import java.security.Key;
+import java.util.Base64;
 import javax.crypto.spec.SecretKeySpec;
 
 public class EncryptionHandler
@@ -23,8 +24,8 @@ public class EncryptionHandler
         }
     }
 
-    //encrypt a given string
-    public static byte[] encrypt(String str)
+    //encrypt a string
+    public static String encrypt(String str)
     {
         byte[] encrypted = {};
 
@@ -38,25 +39,26 @@ public class EncryptionHandler
             e.printStackTrace();
         }
 
-        return encrypted;
+        return Base64.getEncoder().encodeToString(encrypted);
     }
 
-    //decrypt a given byte[] into string
-    public static String decrypt(byte[] str)
+    //decrypt a string
+    public static String decrypt(String encoded)
     {
+        byte[] decodedBytes = Base64.getDecoder().decode(encoded);
         String decrypted = "";
 
         try
         {
             cipher.init(Cipher.DECRYPT_MODE, aesKey);
-            decrypted = new String(cipher.doFinal(str));
+            decrypted = new String(cipher.doFinal(decodedBytes));
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
 
-       return decrypted;
+        return decrypted;
     }
 
     public static String byteArrayToString(byte[] bytes)

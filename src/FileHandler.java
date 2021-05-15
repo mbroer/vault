@@ -28,7 +28,7 @@ public class FileHandler
 
         try
         {
-            FW = new FileWriter("currentFileName",true);
+            FW = new FileWriter(fileFullPath,true);
         }
         catch (IOException e)
         {
@@ -94,7 +94,7 @@ public class FileHandler
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         JsonObject jsonObj = new JsonObject();
-        JsonArray jsonArray = new JsonArray();
+        JsonArray jsonArray = getEntriesFromJson();
         JsonElement element = gson.toJsonTree(entry,LoginEntry.class);
 
         jsonArray.add(element);
@@ -125,6 +125,25 @@ public class FileHandler
         }
     }
 
+    public JsonArray getEntriesFromJson()
+    {
+        Gson gson = new Gson();
+        JsonArray jsonArray = new JsonArray();
+
+        try(FileReader reader = new FileReader(fileFullPath))
+        {
+            JsonParser parser = new JsonParser();
+            JsonObject rootObj = parser.parse(reader).getAsJsonObject();
+            jsonArray = rootObj.getAsJsonArray("entries");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return jsonArray;
+    }
+
     //reads data from json file
     public ArrayList<LoginEntry> loadDataFromJson()
     {
@@ -132,21 +151,12 @@ public class FileHandler
 
         ArrayList<LoginEntry> entries = new ArrayList<>();
 
-        try(FileReader reader = new FileReader(fileFullPath))
-        {
-            JsonParser parser = new JsonParser();
-            JsonObject rootObj = parser.parse(reader).getAsJsonObject();
-            JsonArray jsonArray = rootObj.getAsJsonArray("entries");
+        JsonArray jsonArray = getEntriesFromJson();
 
-            //create LoginEntry classes from json data
-            if (jsonArray != null)
-                for (int i=0;i<jsonArray.size();i++)
-                    entries.add( gson.fromJson(jsonArray.get(i), LoginEntry.class) );
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        //create LoginEntry classes from json data
+        if (jsonArray != null)
+            for (int i=0;i<jsonArray.size();i++)
+                entries.add( gson.fromJson(jsonArray.get(i), LoginEntry.class) );
 
         System.out.println("Loaded "+entries.size()+" login entries");
 
