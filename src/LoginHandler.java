@@ -25,6 +25,8 @@ public class LoginHandler
     {
         if(password.equals(masterPassword))
             isLoggedIn = true;
+        else
+            System.out.println("Incorrect master password.");
     }
 
     //logout of the application, requires to re-enter master password
