@@ -6,9 +6,10 @@ public class FileHandlerTest {
 
     @Test
     public void createFile() {
-        FileHandler FH = new FileHandler();
-
         String filename = "testFile";
+
+        FileHandler FH = new FileHandler(filename);
+
         FH.createFile(filename);
 
         assertTrue(FH.doesFileExist(filename));
@@ -17,7 +18,7 @@ public class FileHandlerTest {
     @Test
     public void doesFileExist()
     {
-        FileHandler FH = new FileHandler();
+        FileHandler FH = new FileHandler("data");
 
         assertTrue(FH.doesFileExist("data"));
     }
