@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 public class LoginHandler
 {
     //To make sure user can login to the application, a global masterpassword has to be defined.
+    private static final Scanner scan = new Scanner(System.in);
     private final String masterPassword = "ytTy//R2Uy3bdUR5/eopVg==";
 
     //keep track of user login state
@@ -29,6 +32,15 @@ public class LoginHandler
             isLoggedIn = true;
         else
             System.out.println("Incorrect master password.");
+    }
+
+    public void askForLoginUntilCorrect()
+    {
+        while(!isLoggedIn())
+        {
+            System.out.println("Voer masterpassword in.");
+            login(scan.nextLine());
+        }
     }
 
     //logout of the application, requires to re-enter master password
