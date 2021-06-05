@@ -4,7 +4,6 @@ import java.util.Base64;
 public class EncryptionHandler
 {
     //Cipher to handle encryption
-
     public static String encrypt(String str)
     {
         byte[] encrypted = {};
