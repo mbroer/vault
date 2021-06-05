@@ -46,7 +46,6 @@ public abstract class PasswordGenerator
     abstract StringBuilder addSpecialCharacters(StringBuilder str);
     abstract boolean containsSpecChar(String str);
 
-
     private StringBuilder addUpperCaseCharacters(StringBuilder str)
     {
         return str.append(CHARS);

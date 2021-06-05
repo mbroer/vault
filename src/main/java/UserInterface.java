@@ -31,7 +31,7 @@ public class UserInterface
 
     public static void controls()
     {
-        while(scanner.hasNextLine())
+        while(scanner.hasNextLine() && LoginHandler.getInstance().isLoggedIn())
         {
             String str = getScannerResult(true);
 
@@ -74,6 +74,7 @@ public class UserInterface
             System.out.println(msg);
 
         String str = scanner.nextLine();
+
         if(notNull && str.isEmpty())
             getScannerResult("Verkeerde input", true);
 

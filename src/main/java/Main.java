@@ -11,6 +11,9 @@ public class Main
         //load decrypted vault
         EntryVault.getInstance();
 
+        //start password generator class, adds option in UserInterface
+        new PasswordGenSpecial();
+
         //show UI and start controls
         UserInterface.start();
     }
