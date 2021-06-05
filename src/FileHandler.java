@@ -111,7 +111,7 @@ public class FileHandler
             e.printStackTrace();
         }
 
-        entry.setPassword(EncryptionHandler.decrypt(entry.getPassword()));
+        entry.setPassword(DecryptionHandler.decrypt(entry.getPassword()));
     }
 
     public void fromJson()
@@ -164,7 +164,7 @@ public class FileHandler
             {
                 System.out.println("aye");
                 LoginEntry entry = gson.fromJson(jsonArray.get(i), LoginEntry.class);
-                entry.setPassword(EncryptionHandler.decrypt((entry.getPassword())));
+                entry.setPassword(DecryptionHandler.decrypt((entry.getPassword())));
 
                 entries.add( entry );
             }
