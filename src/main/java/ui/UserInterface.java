@@ -1,3 +1,5 @@
+package ui;
+
 import java.util.LinkedHashMap;
 import java.util.Scanner;
 
@@ -31,7 +33,7 @@ public class UserInterface
 
     public static void controls()
     {
-        while(scanner.hasNextLine() && LoginHandler.getInstance().isLoggedIn())
+        while(scanner.hasNextLine())
         {
             String str = getScannerResult(true);
 

@@ -1,3 +1,5 @@
+import start.LoginHandler;
+
 import static org.junit.Assert.*;
 
 public class LoginHandlerTest

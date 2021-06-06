@@ -1,4 +1,8 @@
+package data;
+
 import java.util.ArrayList;
+
+import ui.UserInterface;
 
 public class EntryVault
 {
@@ -26,7 +30,7 @@ public class EntryVault
         return singleton;
     }
 
-    //Will list all LoginEntry from the entries arraylist
+    //Will list all Data.LoginEntry from the entries arraylist
     public void listEntries()
     {
         String column = "%-30.30s  %-30.30s %-30.30s %-30.30s%n";

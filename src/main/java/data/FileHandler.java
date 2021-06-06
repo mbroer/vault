@@ -1,6 +1,10 @@
+package data;
+
 import java.io.*;
 import java.util.ArrayList;
 
+import encryption.DecryptionHandler;
+import encryption.EncryptionHandler;
 import com.google.gson.*;
 
 public class FileHandler
@@ -157,7 +161,7 @@ public class FileHandler
 
         JsonArray jsonArray = getEntriesFromJson();
 
-        //create LoginEntry classes from json data
+        //create Data.LoginEntry classes from json data
         if (jsonArray != null)
         {
             for (int i=0;i<jsonArray.size();i++)

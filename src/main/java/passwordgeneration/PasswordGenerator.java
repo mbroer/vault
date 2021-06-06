@@ -1,3 +1,5 @@
+package passwordgeneration;
+
 import java.security.SecureRandom;
 
 public abstract class PasswordGenerator

@@ -1,7 +1,9 @@
+package encryption;
+
 import javax.crypto.Cipher;
 import java.util.Base64;
 
-public class DecryptionHandler
+public class DecryptionHandler extends CipherHandler
 {
     //decrypt a string
     public static String decrypt(String encoded)
@@ -11,8 +13,8 @@ public class DecryptionHandler
 
         try
         {
-            CipherHandler.getCipher().init(Cipher.DECRYPT_MODE, CipherHandler.getAESKey());
-            decrypted = new String(CipherHandler.getCipher().doFinal(decodedBytes));
+            getCipher().init(Cipher.DECRYPT_MODE, getAESKey());
+            decrypted = new String(getCipher().doFinal(decodedBytes));
         }
         catch(Exception e)
         {

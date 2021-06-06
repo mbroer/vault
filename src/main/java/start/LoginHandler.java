@@ -1,3 +1,8 @@
+package start;
+
+import encryption.EncryptionHandler;
+import ui.UserInterface;
+
 import java.util.Scanner;
 
 public class LoginHandler

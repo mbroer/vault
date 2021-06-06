@@ -1,5 +1,10 @@
+package passwordgeneration;
+
+import ui.UserInterface;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 public class PasswordGenSpecial extends PasswordGenerator
 {
