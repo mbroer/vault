@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "username": "loginnaamTest",
+      "password": "wDbkDcMC/IvO7d5hGN/Z1Q\u003d\u003d",
+      "domain": "domeinTest",
+      "description": "beschrijvingTest"
+    },
+    {
+      "username": "naam",
+      "password": "CwG3ej1TyB0CoXJIRMz8ig\u003d\u003d",
+      "domain": "test",
+      "description": "test"
+    },
+    {
+      "username": "test",
+      "password": "CwG3ej1TyB0CoXJIRMz8ig\u003d\u003d",
+      "domain": "test",
+      "description": "test"
+    }
+  ]
+}

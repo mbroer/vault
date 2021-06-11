@@ -25,7 +25,7 @@ public class LoginEntry
         wrapper to create new entry, returns false if given incorrect input,
         returns true and creates new entry if correct inputs are supplied
     */
-    public static LoginEntry createNewEntry(String username, String password, String domain, String description, boolean saveToFile)
+    public static LoginEntry createNewEntry(String username, String password, String domain, String description)
     {
         if(username.isEmpty() || password.isEmpty())
             return null;
@@ -35,9 +35,9 @@ public class LoginEntry
         return entry;
     }
 
-    public static LoginEntry createNewEntry(Integer username, String password, String domain, String description, boolean saveToFile)
+    public static LoginEntry createNewEntry(Integer username, String password, String domain, String description)
     {
-        return createNewEntry(username.toString(), password, domain, description, saveToFile);
+        return createNewEntry(username.toString(), password, domain, description);
     }
 
     //Sets username of Data.LoginEntry

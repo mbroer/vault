@@ -48,21 +48,18 @@ public class EntryVault
         String domain = UserInterface.getScannerResult("Voer domein in", false);
         String description = UserInterface.getScannerResult("Voer beschrijving in", false);
 
-        createEntry(username, password, domain, description, true);
+        createEntry(username, password, domain, description);
         System.out.println("Gegevens toegevoegd.");
     }
 
-    public void createEntry(String username, String password, String domain, String description, boolean saveToFile)
+    public void createEntry(String username, String password, String domain, String description)
     {
-        LoginEntry entry = LoginEntry.createNewEntry(username, password, domain, description, saveToFile);
+        LoginEntry entry = LoginEntry.createNewEntry(username, password, domain, description);
 
         addEntry(entry);
 
-        if(saveToFile)
-        {
-            FileHandler FH = new FileHandler("data");
-            FH.saveLoginEntryToJson(entry);
-        }
+        FileHandler FH = new FileHandler("data");
+        FH.saveLoginEntryToJson(entry);
     }
 
     //Handles adding an entry to the vault
