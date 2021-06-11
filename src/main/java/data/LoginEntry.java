@@ -14,30 +14,10 @@ public class LoginEntry
     //Data.LoginEntry constructor creates new Data.LoginEntry object for use in the Vault
     public LoginEntry(String username, String password, String domain, String description)
     {
-
         this.username = username;
         this.password = password;
         this.domain = domain;
         this.description = description;
-    }
-
-    /*
-        wrapper to create new entry, returns false if given incorrect input,
-        returns true and creates new entry if correct inputs are supplied
-    */
-    public static LoginEntry createNewEntry(String username, String password, String domain, String description)
-    {
-        if(username.isEmpty() || password.isEmpty())
-            return null;
-
-        LoginEntry entry = new LoginEntry(username, password, domain, description);
-
-        return entry;
-    }
-
-    public static LoginEntry createNewEntry(Integer username, String password, String domain, String description)
-    {
-        return createNewEntry(username.toString(), password, domain, description);
     }
 
     //Sets username of Data.LoginEntry

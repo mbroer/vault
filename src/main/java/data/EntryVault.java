@@ -1,6 +1,7 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import ui.UserInterface;
 
@@ -54,7 +55,7 @@ public class EntryVault
 
     public void createEntry(String username, String password, String domain, String description)
     {
-        LoginEntry entry = LoginEntry.createNewEntry(username, password, domain, description);
+        LoginEntry entry = new LoginEntry(username, password, domain, description);
 
         addEntry(entry);
 

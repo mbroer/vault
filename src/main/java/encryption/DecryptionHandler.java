@@ -11,13 +11,11 @@ public class DecryptionHandler extends CipherHandler
         byte[] decodedBytes = Base64.getDecoder().decode(encoded);
         String decrypted = "";
 
-        try
-        {
+        try{
             getCipher().init(Cipher.DECRYPT_MODE, getAESKey());
             decrypted = new String(getCipher().doFinal(decodedBytes));
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             e.printStackTrace();
         }
 

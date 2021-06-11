@@ -10,13 +10,11 @@ public class EncryptionHandler extends CipherHandler
     {
         byte[] encrypted = {};
 
-        try
-        {
+        try{
             getCipher().init(Cipher.ENCRYPT_MODE, getAESKey());
             encrypted = getCipher().doFinal(str.getBytes());
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             e.printStackTrace();
         }
 
