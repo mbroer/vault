@@ -15,35 +15,38 @@ public abstract class PasswordGenerator
 
     final String createPassword(int length)
     {
-        if(length < 6)
-            return "";
-        else if(length > 50)
+        if( length < 6 || length > 50)
             return "";
 
         StringBuilder password = new StringBuilder();
 
-        password = addUpperCaseCharacters(password);
-        password = addLowerCaseCharacters(password);
-        password = addNumCharacters(password);
-
-        boolean includeSpecialChars = includeSpecialCharacters();
-
-        //TEMPLATE METHOD
-        if(includeSpecialChars)
-            password = addSpecialCharacters(password);
-
+        password = addAllCharacters(password);
         password = shuffle(password);
 
         String stringPassword = password.substring(0, length);
 
         //TEMPLATE METHOD
         //if special chars are wanted but none are found recreate password.
-        if(includeSpecialChars)
+        if(includeSpecialCharacters())
             if(!containsSpecChar(stringPassword))
                 return createPassword(length);
 
         return stringPassword;
     }
+
+    private StringBuilder addAllCharacters(StringBuilder password)
+    {
+        password = addUpperCaseCharacters(password);
+        password = addLowerCaseCharacters(password);
+        password = addNumCharacters(password);
+
+        //TEMPLATE METHOD
+        if(includeSpecialCharacters())
+            password = addSpecialCharacters(password);
+
+        return password;
+    }
+
 
     abstract StringBuilder addSpecialCharacters(StringBuilder str);
     abstract boolean containsSpecChar(String str);

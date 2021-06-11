@@ -37,32 +37,32 @@ public class UserInterface
         {
             String str = getScannerResult(true);
 
-            //check if string is number
-            if( !str.matches("[-+]?\\d*\\.?\\d+") )
-            {
-                System.out.println("Verkeerde input");
+            if(!isValidInput(str))
                 continue;
-            }
-
-            //input is used for array, therefore subtract 1 from input
-            int input = Integer.parseInt(str)-1;
-
-            if(input < 0 || input >= menu.size())
-            {
-                System.out.println("Verkeerde input");
-                continue;
-            }
 
             System.out.println("\n" + "=".repeat(120));
 
             //call stored function
-            menu.get(menu.keySet().toArray()[input]).run();
+            menu.get(menu.keySet().toArray()[Integer.parseInt(str)-1]).run();
 
             System.out.println("=".repeat(120));
 
             getScannerResult("\nDruk op enter om terug te gaan naar menu", false);
             showMainMenu();
         }
+    }
+
+    public static boolean isValidInput(String strInput)
+    {
+        if(strInput.matches("[-+]?\\d*\\.?\\d+")) //check if string can be parsed to int
+        {
+            int intInput = Integer.parseInt(strInput)-1;
+            if(intInput > 0 && intInput < menu.size())
+                return true;
+        }
+
+        System.out.println("Verkeerde input");
+        return false;
     }
 
     public static String getScannerResult(boolean notNull)
