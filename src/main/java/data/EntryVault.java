@@ -1,7 +1,6 @@
 package data;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import ui.UserInterface;
 

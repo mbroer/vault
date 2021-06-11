@@ -98,7 +98,6 @@ public class FileHandler
 
     public JsonArray getEntriesFromJson()
     {
-        Gson gson = new Gson();
         JsonArray jsonArray = new JsonArray();
 
         try(FileReader reader = new FileReader(fileFullPath)){
