@@ -57,7 +57,7 @@ public class UserInterface
         if(strInput.matches("[-+]?\\d*\\.?\\d+")) //check if string can be parsed to int
         {
             int intInput = Integer.parseInt(strInput)-1;
-            if(intInput > 0 && intInput < menu.size())
+            if(intInput >= 0 && intInput < menu.size())
                 return true;
         }
 
