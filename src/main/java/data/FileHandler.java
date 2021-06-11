@@ -45,32 +45,18 @@ public class FileHandler
     {
         System.out.println("Creating datafile: "+filename);
 
-        try
-        {
+        try{
             new FileWriter(fileFullPath, true);
         }
-        catch (IOException e)
-        {
+        catch (IOException e){
             e.printStackTrace();
         }
-    }
-
-    //handles editing existing files
-    public void editFile()
-    {
-
     }
 
     //handles importing files
     public void importFile(String filename)
     {
         this.file = new File(dataFolder, filename);
-    }
-
-    //handles exporting files
-    public void exportFile()
-    {
-
     }
 
     //checks if file exists in dir
@@ -110,34 +96,17 @@ public class FileHandler
         entry.setPassword(DecryptionHandler.decrypt(entry.getPassword()));
     }
 
-    public void fromJson()
-    {
-        Gson gson = new Gson();
-
-        try(FileReader reader = new FileReader(fileFullPath))
-        {
-            EntryVault entry = gson.fromJson(reader, EntryVault.class);
-            System.out.println(entry.getEntries().size());
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
     public JsonArray getEntriesFromJson()
     {
         Gson gson = new Gson();
         JsonArray jsonArray = new JsonArray();
 
-        try(FileReader reader = new FileReader(fileFullPath))
-        {
+        try(FileReader reader = new FileReader(fileFullPath)){
             JsonParser parser = new JsonParser();
             JsonObject rootObj = parser.parse(reader).getAsJsonObject();
             jsonArray = rootObj.getAsJsonArray("entries");
         }
-        catch (IOException e)
-        {
+        catch (IOException e){
             e.printStackTrace();
         }
 
@@ -154,18 +123,14 @@ public class FileHandler
         JsonArray jsonArray = getEntriesFromJson();
 
         //create Data.LoginEntry classes from json data
-        if (jsonArray != null)
-        {
-            for (int i=0;i<jsonArray.size();i++)
-            {
+        if (jsonArray != null) {
+            for (int i=0;i<jsonArray.size();i++) {
                 LoginEntry entry = gson.fromJson(jsonArray.get(i), LoginEntry.class);
                 entry.setPassword(DecryptionHandler.decrypt((entry.getPassword())));
 
                 entries.add( entry );
             }
         }
-
-        //System.out.println("Loaded "+entries.size()+" login entries");
 
         return entries;
     }

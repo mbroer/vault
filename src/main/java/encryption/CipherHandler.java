@@ -13,13 +13,11 @@ public class CipherHandler
 
     static
     {
-        try
-        {
+        try{
             cipher = Cipher.getInstance("AES");
             aesKey = new SecretKeySpec(key.getBytes(), "AES");
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             e.printStackTrace();
         }
     }
