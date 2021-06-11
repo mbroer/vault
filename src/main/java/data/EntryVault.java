@@ -1,4 +1,8 @@
+package data;
+
 import java.util.ArrayList;
+
+import ui.UserInterface;
 
 public class EntryVault
 {
@@ -10,6 +14,9 @@ public class EntryVault
     //Constructor will load-in an arraylist of loginentries
     private EntryVault()
     {
+        UserInterface.addMenuOpt("Toon login gegevens", this::listEntries);
+        UserInterface.addMenuOpt("Voeg login gegevens toe", this::createEntryUser);
+
         FileHandler fileHandler = new FileHandler("data");
 
         entries = fileHandler.loadDataFromJson();
@@ -23,13 +30,26 @@ public class EntryVault
         return singleton;
     }
 
-    //Will list all LoginEntry from the entries arraylist
+    //Will list all Data.LoginEntry from the entries arraylist
     public void listEntries()
     {
-        System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", "LOGINNAAM", "WACHTWOORD", "DOMEIN");
+        String column = "%-30.30s  %-30.30s %-30.30s %-30.30s%n";
+
+        System.out.printf(column, "LOGINNAAM", "WACHTWOORD", "DOMEIN", "BESCHRIJVING");
 
         for(LoginEntry entry : getEntries())
-            System.out.printf("%-30.30s  %-30.30s  %-30.30s%n", entry.getUsername(), entry.getPassword(), entry.getDescription());
+            System.out.printf(column, entry.getUsername(), entry.getPassword(), entry.getDomain(), entry.getDescription());
+    }
+
+    public void createEntryUser()
+    {
+        String username = UserInterface.getScannerResult("Voer loginnaam in", true);
+        String password = UserInterface.getScannerResult("Voer wachtwoord in", true);
+        String domain = UserInterface.getScannerResult("Voer domein in", false);
+        String description = UserInterface.getScannerResult("Voer beschrijving in", false);
+
+        createEntry(username, password, domain, description, true);
+        System.out.println("Gegevens toegevoegd.");
     }
 
     public void createEntry(String username, String password, String domain, String description, boolean saveToFile)
@@ -43,7 +63,6 @@ public class EntryVault
             FileHandler FH = new FileHandler("data");
             FH.saveLoginEntryToJson(entry);
         }
-
     }
 
     //Handles adding an entry to the vault

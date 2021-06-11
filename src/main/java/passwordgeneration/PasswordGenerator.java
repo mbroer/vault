@@ -1,3 +1,5 @@
+package passwordgeneration;
+
 import java.security.SecureRandom;
 
 public abstract class PasswordGenerator
@@ -45,7 +47,6 @@ public abstract class PasswordGenerator
 
     abstract StringBuilder addSpecialCharacters(StringBuilder str);
     abstract boolean containsSpecChar(String str);
-
 
     private StringBuilder addUpperCaseCharacters(StringBuilder str)
     {

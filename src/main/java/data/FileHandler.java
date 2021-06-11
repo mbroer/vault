@@ -1,6 +1,10 @@
+package data;
+
 import java.io.*;
 import java.util.ArrayList;
 
+import encryption.DecryptionHandler;
+import encryption.EncryptionHandler;
 import com.google.gson.*;
 
 public class FileHandler
@@ -111,7 +115,7 @@ public class FileHandler
             e.printStackTrace();
         }
 
-        entry.setPassword(EncryptionHandler.decrypt(entry.getPassword()));
+        entry.setPassword(DecryptionHandler.decrypt(entry.getPassword()));
     }
 
     public void fromJson()
@@ -157,14 +161,13 @@ public class FileHandler
 
         JsonArray jsonArray = getEntriesFromJson();
 
-        //create LoginEntry classes from json data
+        //create Data.LoginEntry classes from json data
         if (jsonArray != null)
         {
             for (int i=0;i<jsonArray.size();i++)
             {
-                System.out.println("aye");
                 LoginEntry entry = gson.fromJson(jsonArray.get(i), LoginEntry.class);
-                entry.setPassword(EncryptionHandler.decrypt((entry.getPassword())));
+                entry.setPassword(DecryptionHandler.decrypt((entry.getPassword())));
 
                 entries.add( entry );
             }

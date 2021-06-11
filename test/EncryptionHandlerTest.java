@@ -1,6 +1,6 @@
+import encryption.DecryptionHandler;
+import encryption.EncryptionHandler;
 import org.junit.Test;
-
-import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,7 @@ public class EncryptionHandlerTest
     @Test
     public void encrypt()
     {
-        String encryptedString = encryptedString = EncryptionHandler.encrypt("teststring");
+        String encryptedString = EncryptionHandler.encrypt("teststring");
 
         assertEquals("TAdGCwWDHUcDXRBNsaltSg==", encryptedString);
     }
@@ -18,7 +18,7 @@ public class EncryptionHandlerTest
     @Test
     public void decrypt()
     {
-        String decryptedString = EncryptionHandler.decrypt("TAdGCwWDHUcDXRBNsaltSg==");
+        String decryptedString = DecryptionHandler.decrypt("TAdGCwWDHUcDXRBNsaltSg==");
 
         assertEquals(decryptedString, "teststring");
     }

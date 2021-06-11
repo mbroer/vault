@@ -1,7 +1,5 @@
+import data.LoginEntry;
 import org.junit.Test;
-
-
-import static org.junit.Assert.*;
 
 public class LoginEntryTest
 {
@@ -20,14 +18,14 @@ public class LoginEntryTest
         String domain = "domain";
         String desc = "description";
         /*
-        assertTrue( LoginEntry.createNewEntry( username, password, domain, desc, false ) );
-        assertTrue( LoginEntry.createNewEntry( username, emptyPW, emptyDomain, emptyDESC, false ) );
+        assertTrue( Data.LoginEntry.createNewEntry( username, password, domain, desc, false ) );
+        assertTrue( Data.LoginEntry.createNewEntry( username, emptyPW, emptyDomain, emptyDESC, false ) );
 
-        assertTrue( LoginEntry.createNewEntry( usernameINT, password, emptyDomain, desc, false ) );
-        assertTrue( LoginEntry.createNewEntry( usernameINT, emptyPW, domain, emptyDESC, false ) );
+        assertTrue( Data.LoginEntry.createNewEntry( usernameINT, password, emptyDomain, desc, false ) );
+        assertTrue( Data.LoginEntry.createNewEntry( usernameINT, emptyPW, domain, emptyDESC, false ) );
 
-        assertTrue( LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC, false ) );
-        assertTrue( LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC, false ) );
+        assertTrue( Data.LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC, false ) );
+        assertTrue( Data.LoginEntry.createNewEntry( emptyUsername, emptyPW, domain, emptyDESC, false ) );
         */
     }
 }

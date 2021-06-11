@@ -9,10 +9,10 @@ public class EntryVaultTest
     @Test
     public void addEntry()
     {
-        //ArrayList<LoginEntry> entries = new ArrayList<>();
-        //EntryVault vault = new EntryVault(entries);
+        //ArrayList<Data.LoginEntry> entries = new ArrayList<>();
+        //Data.EntryVault vault = new Data.EntryVault(entries);
 
-        //LoginEntry entry = new LoginEntry("username", "password", "domain", "description");
+        //Data.LoginEntry entry = new Data.LoginEntry("username", "password", "domain", "description");
         //vault.addEntry(entry);
 
         //assertEquals(1, vault.getEntries().size());

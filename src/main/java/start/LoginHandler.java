@@ -1,3 +1,8 @@
+package start;
+
+import encryption.EncryptionHandler;
+import ui.UserInterface;
+
 import java.util.Scanner;
 
 public class LoginHandler
@@ -13,6 +18,7 @@ public class LoginHandler
 
     private LoginHandler()
     {
+        UserInterface.addMenuOpt("Logout", this::logout);
     }
 
     public static LoginHandler getInstance()
@@ -29,7 +35,10 @@ public class LoginHandler
         password = EncryptionHandler.encrypt(password);
 
         if(password.equals(masterPassword))
+        {
+            System.out.println("Welkom");
             isLoggedIn = true;
+        }
         else
             System.out.println("Incorrect master password.");
     }
@@ -47,6 +56,8 @@ public class LoginHandler
     public void logout()
     {
         isLoggedIn = false;
+
+        askForLoginUntilCorrect();
     }
 
     //function to check if user is actually logged in

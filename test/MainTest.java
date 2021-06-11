@@ -1,4 +1,6 @@
+import data.LoginEntry;
 import org.junit.Test;
+import start.LoginHandler;
 
 import static org.junit.Assert.*;
 
