@@ -24,18 +24,15 @@ public class FileHandler
         currentFileName = filename+fileExtension;
         fileFullPath = dataFolder+currentFileName;
 
-        if(!doesFileExist(currentFileName))
-        {
+        if(!doesFileExist(currentFileName)){
             System.err.println("datafile"+ currentFileName +" is missing!");
             createFile(filename);
         }
 
-        try
-        {
+        try{
             FW = new FileWriter(fileFullPath,true);
         }
-        catch (IOException e)
-        {
+        catch (IOException e){
             e.printStackTrace();
         }
 
@@ -79,9 +76,7 @@ public class FileHandler
     //checks if file exists in dir
     public boolean doesFileExist(String filename)
     {
-        filename = addExtensionIfMissing(filename);
-
-        return new File(dataFolder,filename).exists();
+        return new File(dataFolder, addExtensionIfMissing(filename)).exists();
     }
 
 
@@ -101,17 +96,14 @@ public class FileHandler
 
         JsonObject jsonObj = new JsonObject();
         JsonArray jsonArray = getEntriesFromJson();
-        JsonElement element = gson.toJsonTree(entry,LoginEntry.class);
 
-        jsonArray.add(element);
+        jsonArray.add(gson.toJsonTree(entry,LoginEntry.class));
         jsonObj.add("entries", jsonArray);
 
-        try(FileWriter writer = new FileWriter(fileFullPath, false))
-        {
+        try(FileWriter writer = new FileWriter(fileFullPath, false)){
             gson.toJson(jsonObj, writer);
         }
-        catch (IOException e)
-        {
+        catch (IOException e){
             e.printStackTrace();
         }
 
